@@ -1,16 +1,20 @@
 import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Navbar() {
+
   return (
+
     <>
       <header className="py-lg-5 py-4 px-0 border-bottom border-bottom-lg-0">
          <div className="container">
             <div className="row w-100 align-items-center g-0 gx-lg-3">
                <div className="col-xxl-9 col-lg-8">
                   <div className="d-flex align-items-center">
-                     <a className="navbar-brand d-none d-lg-block" href="../index.html">
-                        <img src="assets/images/logo/freshcart-logo.svg" alt="eCommerce HTML Template" />
-                     </a>
+                     <Link className="navbar-brand d-none d-lg-block" href="../index.html">
+                        <Image src="/assets/images/logo/freshcart-logo.svg" height={30} width={160} alt="eCommerce HTML Template" />
+                     </Link>
                      <div className="w-100 ms-4 d-none d-lg-block">
                         <form action="#">
                            <div className="input-group">

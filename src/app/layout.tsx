@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import Head from "next/head";
 import Script from "next/script";
+import Navbar from "@/components/ui/Navbar";
+import Footer from "@/components/ui/Footer";
 
 export const metadata: Metadata = {
   title: "Shop",
   description: "Shop",
 };
 
-export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
+export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en" dir="ltr">
       <head>
@@ -44,7 +46,10 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
       </head>
 
       <body>
+        <Navbar />
+
         {children}
+        <Footer />
 
         {/* JavaScript Assets */}
         <Script

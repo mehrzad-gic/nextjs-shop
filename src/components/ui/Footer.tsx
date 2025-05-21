@@ -89,19 +89,19 @@ export default function Footer() {
                             <ul className="list-inline mb-0">
                                 <li className="list-inline-item text-dark">Payment Partners</li>
                                 <li className="list-inline-item">
-                                    <a href="#!"><img src="assets/images/payment/amazonpay.svg" alt="" /></a>
+                                    {/* <a href="#!"><img src="assets/images/payment/amazonpay.svg" alt="" /></a> */}
                                 </li>
                                 <li className="list-inline-item">
-                                    <a href="#!"><img src="assets/images/payment/american-express.svg" alt="" /></a>
+                                    {/* <a href="#!"><img src="assets/images/payment/american-express.svg" alt="" /></a> */}
                                 </li>
                                 <li className="list-inline-item">
-                                    <a href="#!"><img src="assets/images/payment/mastercard.svg" alt="" /></a>
+                                    {/* <a href="#!"><img src="assets/images/payment/mastercard.svg" alt="" /></a> */}
                                 </li>
                                 <li className="list-inline-item">
-                                    <a href="#!"><img src="assets/images/payment/paypal.svg" alt="" /></a>
+                                    {/* <a href="#!"><img src="assets/images/payment/paypal.svg" alt="" /></a> */}
                                 </li>
                                 <li className="list-inline-item">
-                                    <a href="#!"><img src="assets/images/payment/visa.svg" alt="" /></a>
+                                    {/* <a href="#!"><img src="assets/images/payment/visa.svg" alt="" /></a> */}
                                 </li>
                             </ul>
                         </div>
@@ -109,10 +109,10 @@ export default function Footer() {
                             <ul className="list-inline mb-0 text-lg-end text-center">
                                 <li className="list-inline-item mb-2 mb-md-0 text-dark">Get deliveries with FreshCart</li>
                                 <li className="list-inline-item ms-4">
-                                    <a href="#!"><img src="assets/images/appbutton/appstore-btn.svg" alt="" style={{width:'140px'}} /></a>
+                                    {/* <a href="#!"><img src="assets/images/appbutton/appstore-btn.svg" alt="" style={{width:'140px'}} /></a> */}
                                 </li>
                                 <li className="list-inline-item">
-                                    <a href="#!"><img src="assets/images/appbutton/googleplay-btn.svg" alt="" style={{width:'140px'}} /></a>
+                                    {/* <a href="#!"><img src="assets/images/appbutton/googleplay-btn.svg" alt="" style={{width:'140px'}} /></a> */}
                                 </li>
                             </ul>
                         </div>
