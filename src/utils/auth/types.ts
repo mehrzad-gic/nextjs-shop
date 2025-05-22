@@ -1,7 +1,6 @@
-export interface LoginResponse {
-  error?: string;
-  success?: boolean;
-  token?: string;
+export interface Response {
+  error: string | null;
+  success: boolean;
 }
 
 export interface User {
@@ -11,13 +10,12 @@ export interface User {
   role?: string;
 }
 
-export interface AuthState {
-  user: User | null;
-  token: string | null;
-  isAuthenticated: boolean;
-}
 
-export interface ApiError {
-  message: string;
-  status: number;
-} 
+// form types
+export interface LoginForm{
+  email: string
+};
+
+export interface VerifyForm{
+  token: string | number
+};

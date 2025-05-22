@@ -1,14 +1,17 @@
-export const AUTH_CONFIG = {
-  API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api',
-  TOKEN_KEY: 'auth_token',
-  REFRESH_TOKEN_KEY: 'refresh_token',
-  TOKEN_EXPIRY: 24 * 60 * 60 * 1000, // 24 hours in milliseconds
-} as const;
-
 export const AUTH_ENDPOINTS = {
   LOGIN: '/auth/login',
-  REGISTER: '/auth/register',
+  VERIFY: '/auth/verify',
   LOGOUT: '/auth/logout',
-  REFRESH_TOKEN: '/auth/refresh-token',
-  VERIFY_TOKEN: '/auth/verify-token',
 } as const; 
+
+export const AUTH_RESPONSE = {
+  SUCCESS: 'success',
+  ERROR: 'error',
+  UNAUTHORIZED: 'unauthorized',
+  FORBIDDEN: 'forbidden',
+  NOT_FOUND: 'not_found',
+  INTERNAL_SERVER_ERROR: 'internal_server_error',
+  BAD_REQUEST: 'bad_request',
+  UNPROCESSABLE_ENTITY: 'unprocessable_entity',
+  TOKEN_EXPIRED: 'token_expired',
+} as const;

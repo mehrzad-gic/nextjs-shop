@@ -28,10 +28,8 @@ export default function LoginPage() {
 
             setIsLoading(true);
             setError(null);
-            
-            const formData = new FormData();
-            formData.append('email', data.email);            
-            const result = await login(formData);
+
+            const result = await login(data);
         
             if (result?.error) {
                 setError(result.error);

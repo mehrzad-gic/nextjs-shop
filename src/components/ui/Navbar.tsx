@@ -12,7 +12,7 @@ export default function Navbar() {
             <div className="row w-100 align-items-center g-0 gx-lg-3">
                <div className="col-xxl-9 col-lg-8">
                   <div className="d-flex align-items-center">
-                     <Link className="navbar-brand d-none d-lg-block" href="../index.html">
+                     <Link className="navbar-brand d-inline-block" href="/">
                         <Image src="/assets/images/logo/freshcart-logo.svg" height={30} width={160} alt="eCommerce HTML Template" />
                      </Link>
                      <div className="w-100 ms-4 d-none d-lg-block">
@@ -50,9 +50,9 @@ export default function Navbar() {
                      </div>
                   </div>
                   <div className="d-flex justify-content-between w-100 d-lg-none">
-                     <a className="navbar-brand" href="../index.html">
-                        <img src="assets/images/logo/freshcart-logo.svg" alt="eCommerce HTML Template" />
-                     </a>
+                     <Link className="navbar-brand d-inline-block" href="/">
+                        <Image src="/assets/images/logo/freshcart-logo.svg" height={30} width={160} alt="eCommerce HTML Template" />
+                     </Link>
                      <div className="d-flex align-items-center lh-1">
                         <div className="list-inline me-4">
                            <div className="list-inline-item">
@@ -142,7 +142,7 @@ export default function Navbar() {
                         </a>
                      </div>
                      <div className="list-inline-item me-5">
-                        <a href="#!" className="text-reset" data-bs-toggle="modal" data-bs-target="#userModal">
+                        <Link href="/login" className="text-reset d-inline-block">
                            <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="20"
@@ -157,7 +157,7 @@ export default function Navbar() {
                               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                               <circle cx="12" cy="7" r="4"></circle>
                            </svg>
-                        </a>
+                        </Link>
                      </div>
                      <div className="list-inline-item">
                         <a className="text-reset position-relative" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" href="#offcanvasExample" role="button" aria-controls="offcanvasRight">
@@ -192,7 +192,7 @@ export default function Navbar() {
          <div className="container">
             <div className="offcanvas offcanvas-start" id="navbar-default" aria-labelledby="navbar-defaultLabel">
                <div className="offcanvas-header pb-1">
-                  <a href="./index.html"><img src="assets/images/logo/freshcart-logo.svg" alt="eCommerce HTML Template" /></a>
+                  <a href="./index.html"><Image src="/assets/images/logo/freshcart-logo.svg" height={30} width={160} alt="eCommerce HTML Template" /></a>
                   <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                </div>
                <div className="offcanvas-body">
@@ -405,9 +405,9 @@ export default function Navbar() {
                         <li className="nav-item dropdown">
                            <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Account</a>
                            <ul className="dropdown-menu">
-                              <li><a className="dropdown-item" href="../pages/signin.html">Sign in</a></li>
-                              <li><a className="dropdown-item" href="../pages/signup.html">Signup</a></li>
-                              <li><a className="dropdown-item" href="../pages/forgot-password.html">Forgot Password</a></li>
+                              <li><a className="dropdown-item" href="/login">Sign in</a></li>
+                              <li><a className="dropdown-item" href="/signup">Signup</a></li>
+                              <li><a className="dropdown-item" href="/forgot-password">Forgot Password</a></li>
                               <li className="dropdown-submenu dropend">
                                  <a className="dropdown-item dropdown-list-group-item dropdown-toggle" href="#">My Account</a>
                                  <ul className="dropdown-menu">
