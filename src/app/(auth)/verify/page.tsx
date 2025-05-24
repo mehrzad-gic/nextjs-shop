@@ -1,10 +1,10 @@
 "use client";
 import Image from 'next/image';
 import React from 'react';
-import { login } from '@/utils/auth/action';
+import { verify } from '@/utils/auth/action';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { loginSchema, type LoginFormData } from '@/utils/auth/schema';
+import { verifySchema, type verifyFormData } from '@/utils/auth/schema';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
@@ -18,25 +18,26 @@ export default function LoginPage() {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<LoginFormData>({
-        resolver: zodResolver(loginSchema),
+    } = useForm<verifyFormData>({
+        resolver: zodResolver(verifySchema),
     });
 
-    const onSubmit = async (data: LoginFormData) => {
+    const onSubmit = async (data: any) => {
 
         try {
 
             setIsLoading(true);
             setError(null);
 
-            const result = await login(data);
+            const result = await verify(data);
         
             if (result?.error) {
                 setError(result.error);
                 return;
             }
             
-            router.push('/verify');
+            // Redirect to dashboard or home page after successful login
+            router.push('/dashboard');
 
         } catch (err) {
             setError('An error occurred during login. Please try again.');
@@ -56,8 +57,7 @@ export default function LoginPage() {
                         </div>
                         <div className="col-12 col-md-6 offset-lg-1 col-lg-4 order-lg-2 order-1">
                             <div className="mb-lg-9 mb-5">
-                                <h1 className="mb-1 h2 fw-bold">Login</h1>
-                                <p>Welcome back to FreshCart! Enter your email to get started.</p>
+                                <h1 className="mb-1 h2 fw-bold">Verify You're account</h1>
                             </div>
                             <form onSubmit={handleSubmit(onSubmit)} className="needs-validation" noValidate>
                                 {error && (
@@ -69,14 +69,14 @@ export default function LoginPage() {
                                     <div className="col-12">
                                         <label htmlFor="input" className="form-label">Email address</label>
                                         <input
-                                            type="email"
-                                            className={`form-control ${errors.input ? 'is-invalid' : ''}`}
+                                            type="text"
+                                            className={`form-control ${errors.otp ? 'is-invalid' : ''}`}
                                             id="input"
-                                            placeholder="Email"
-                                            {...register('input')}
+                                            placeholder="********"
+                                            {...register('otp')}
                                         />
-                                        {errors.input && (
-                                            <div className="invalid-feedback">{errors.input.message}</div>
+                                        {errors.otp && (
+                                            <div className="invalid-feedback">{errors.otp.message}</div>
                                         )}
                                     </div>
                                     <div className="col-12 d-grid">
@@ -88,10 +88,10 @@ export default function LoginPage() {
                                             {isLoading ? (
                                                 <>
                                                     <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                                                    Signing in...
+                                                    verifying in...
                                                 </>
                                             ) : (
-                                                'Sign In'
+                                                'send'
                                             )}
                                         </button>
                                     </div>

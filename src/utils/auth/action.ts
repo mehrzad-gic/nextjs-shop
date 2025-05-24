@@ -1,13 +1,13 @@
 "use server";
 import { redirect } from "next/navigation";
-import { LoginForm, Response, VerifyForm } from './types';
+import { LoginForm, Response, VerifyForm, resendType } from './types';
 import { AUTH_ENDPOINTS } from "./config";
+ 
 
-
-export const login = async (formData: LoginForm): Promise<Response> => {
+export const login = async (formData: LoginForm) => {
 
   try {
-
+        
     const response = await fetch(`${process.env.BACKEND_URL}${AUTH_ENDPOINTS.LOGIN}`, {
       method: 'POST',
       headers: {
@@ -15,7 +15,7 @@ export const login = async (formData: LoginForm): Promise<Response> => {
       },
       body: JSON.stringify(formData),
     });
-
+    
     const data = await response.json();
 
     if (!response.ok) {
@@ -27,7 +27,7 @@ export const login = async (formData: LoginForm): Promise<Response> => {
 
     return {
       success: true,
-      error: null,
+      error: data.success == false ? data.message : null,
     };
 
   } catch (error) {
@@ -61,7 +61,10 @@ export const logout = async (): Promise<Response> => {
       };
     }
 
-    redirect('/login');
+    return {
+      success: true,
+      error: data.success == false ? data.message : null,
+    };
 
   } catch (error) {
     console.error('Logout error:', error);
@@ -73,12 +76,13 @@ export const logout = async (): Promise<Response> => {
 
 };
 
+
 export const verify = async (formData: VerifyForm): Promise<Response> => {
   
   try {
 
     const response = await fetch(`${process.env.BACKEND_URL}${AUTH_ENDPOINTS.VERIFY}`, {
-      method: 'GET',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -96,7 +100,7 @@ export const verify = async (formData: VerifyForm): Promise<Response> => {
 
     return {
       success: true,
-      error: null,
+      error: data.success == false ? data.message : null,
     };
 
   } catch (error) {
@@ -108,3 +112,39 @@ export const verify = async (formData: VerifyForm): Promise<Response> => {
   }
 
 };
+
+export async function resend(value: resendType): Promise<Response> {
+
+  try{
+
+    const response:any = await fetch(`${process.env.BACKEND_URL}${AUTH_ENDPOINTS.RESEND}/email?${value.email}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(value),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      return {
+        error: data.message || 'resend Token failed. Please try again.',
+        success: false,
+      };
+    }
+
+    return {
+      success: true,
+      error: data.success == false ? data.message : null,
+    };
+     
+  } catch (e: any) {
+    console.error('resend Token error:', e);
+    return {
+      error: e.message || 'An unexpected error occurred. Please try again.',
+      success: false
+    };
+  }
+
+}

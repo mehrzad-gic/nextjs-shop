@@ -13,9 +13,13 @@ export interface User {
 
 // form types
 export interface LoginForm{
-  email: string
+  input: string | number
 };
 
 export interface VerifyForm{
-  token: string | number
+  otp: string | number
 };
+
+export type resendType = {
+  email: string
+}

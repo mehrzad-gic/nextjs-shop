@@ -1,5 +1,6 @@
 export const AUTH_ENDPOINTS = {
   LOGIN: '/auth/login',
+  RESEND: '/auth/resend',
   VERIFY: '/auth/verify',
   LOGOUT: '/auth/logout',
 } as const; 
